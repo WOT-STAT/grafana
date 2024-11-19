@@ -16,6 +16,7 @@ services:
       bridge:
         ipv4_address: 172.28.0.10
 
+networks:
   bridge:
     driver: bridge
     ipam:
