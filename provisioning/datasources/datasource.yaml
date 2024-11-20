@@ -3,7 +3,16 @@ datasources:
   - name: ClickHouse
     type: grafana-clickhouse-datasource
     jsonData:
-      defaultDatabase: database
+      defaultDatabase: default
       port: 9000
       host: host.docker.internal
-      username: default
+      username: ${CLICKHOUSE_USER}
+      logs:
+        defaultDatabase: Statistics
+        defaultTable: Loki
+        otelEnabled: false
+        timeColumn: time
+        messageColumn: message
+        levelColumn: level
+    secureJsonData:
+      password: ${CLICKHOUSE_PASSWORD}

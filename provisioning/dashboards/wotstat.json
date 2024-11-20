@@ -1,0 +1,103 @@
+{
+  "id": null,
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana-clickhouse-datasource",
+          "uid": "ClickHouse"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "links": [],
+  "panels": [
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 14,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "dedupStrategy": "none",
+        "enableLogDetails": true,
+        "prettifyLogMessage": false,
+        "showCommonLabels": false,
+        "showLabels": false,
+        "showTime": false,
+        "sortOrder": "Descending",
+        "wrapLogMessage": false
+      },
+      "pluginVersion": "11.3.1",
+      "targets": [
+        {
+          "builderOptions": {
+            "columns": [
+              {
+                "hint": "time",
+                "name": "time"
+              },
+              {
+                "hint": "log_level",
+                "name": "level"
+              },
+              {
+                "hint": "log_message",
+                "name": "message"
+              }
+            ],
+            "database": "Statistics",
+            "limit": 1000,
+            "meta": {
+              "otelEnabled": false,
+              "otelVersion": "latest"
+            },
+            "mode": "list",
+            "queryType": "logs",
+            "table": "Loki"
+          },
+          "datasource": {
+            "type": "grafana-clickhouse-datasource",
+            "uid": "PDEE91DDB90597936"
+          },
+          "editorType": "builder",
+          "format": 2,
+          "pluginVersion": "4.5.0",
+          "rawSql": "SELECT time as \"timestamp\", message as \"body\", level FROM \"Statistics\".\"Loki\" LIMIT 1000",
+          "refId": "A"
+        }
+      ],
+      "title": "ClickHouse Query Results",
+      "type": "logs"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 40,
+  "tags": [
+    "clickhouse"
+  ],
+  "templating": {
+    "list": []
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "WotStat",
+  "uid": "wotstat-statistics",
+  "version": 1,
+  "weekStart": ""
+}
